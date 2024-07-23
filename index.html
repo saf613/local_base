@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localbase Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label, p {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="date"], input[type="radio"] {
+            display: block;
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="radio"] {
+            display: inline-block;
+            width: auto;
+            margin: 0 10px 0 0;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            width: 20%; /* Adjust the width of each column */
+        }
+        th {
+            background-color: #28a745;
+            color: white;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rwanda-2023-OOSC Identification Form</h1>
+    <form id="dataForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <p>What province do you live in?</p>
+        <input type="radio" id="eastern" name="province" value="Eastern" required>
+        <label for="eastern">Eastern</label><br>
+        <input type="radio" id="northern" name="province" value="Northern">
+        <label for="northern">Northern</label><br>
+        <input type="radio" id="kigali" name="province" value="Kigali">
+        <label for="kigali">Kigali</label><br>
+        <input type="radio" id="southern" name="province" value="Southern">
+        <label for="southern">Southern</label><br>
+        <input type="radio" id="western" name="province" value="Western">
+        <label for="western">Western</label><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Summary of Results</h2>
+    <table id="dataTable" border="1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Province</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data rows will be appended here -->
+        </tbody>
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/localbase@latest/dist/localbase.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
