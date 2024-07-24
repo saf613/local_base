@@ -4,130 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Localbase Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        form {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        label, p {
-            font-weight: bold;
-        }
-        input[type="text"], input[type="date"], input[type="radio"] {
-            display: block;
-            width: calc(100% - 20px);
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        input[type="radio"] {
-            display: inline-block;
-            width: auto;
-            margin: 0 10px 0 0;
-        }
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            border: none;
-            border-radius: 4px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-            width: 20%; /* Adjust the width of each column */
-        }
-        th {
-            background-color: #28a745;
-            color: white;
-        }
-        tbody tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        .delete-btn {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        .delete-btn:hover {
-            background-color: #c82333;
-        }
-    </style>
 </head>
 <body>
     <h1>Rwanda-2023-OOSC Identification Form</h1>
-    <form id="dataForm">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required><br><br>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required><br><br>
+    <!-- Sign-up form -->
+    <form id="signUpForm">
+        <h2>Sign Up</h2>
+        <label for="email">Email:</label>
+        <input type="text" id="signUpEmail" name="email" required><br><br>
 
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="signUpPassword" name="password" required><br><br>
 
-        <p>What province do you live in?</p>
-        <input type="radio" id="eastern" name="province" value="Eastern" required>
-        <label for="eastern">Eastern</label><br>
-        <input type="radio" id="northern" name="province" value="Northern">
-        <label for="northern">Northern</label><br>
-        <input type="radio" id="kigali" name="province" value="Kigali">
-        <label for="kigali">Kigali</label><br>
-        <input type="radio" id="southern" name="province" value="Southern">
-        <label for="southern">Southern</label><br>
-        <input type="radio" id="western" name="province" value="Western">
-        <label for="western">Western</label><br><br>
-
-        <button type="submit">Submit</button>
+        <button type="submit">Sign Up</button>
     </form>
 
-    <h2>Summary of Results</h2>
-    <table id="dataTable" border="1">
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Date of Birth</th>
-                <th>Province</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Data rows will be appended here -->
-        </tbody>
-    </table>
+    <!-- Sign-in form -->
+    <form id="signInForm">
+        <h2>Sign In</h2>
+        <label for="email">Email:</label>
+        <input type="text" id="signInEmail" name="email" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="signInPassword" name="password" required><br><br>
+
+        <button type="submit">Sign In</button>
+    </form>
+
+    <div id="authenticatedContent" style="display:none;">
+        <form id="dataForm">
+            <fieldset>
+                <legend>Enumerator Information</legend>
+                <label for="dateOfAssessment">Date of assessment:</label>
+                <input type="date" id="dateOfAssessment" name="dateOfAssessment" required><br><br>
+
+                <label for="enumeratorName">Name of Enumerator:</label>
+                <input type="text" id="enumeratorName" name="enumeratorName" required><br><br>
+
+                <label for="enumeratorPhone">What is the Enumerator contact phone number? (if available)</label>
+                <input type="text" id="enumeratorPhone" name="enumeratorPhone" pattern="07[0-9]{8}" title="Phone number must start with 07 and be 10 digits long"><br><br>
+
+                <label for="village">Village:</label>
+                <input type="text" id="village" name="village" required><br><br>
+
+                <p>Academic Year:</p>
+                <input type="radio" id="year2023" name="academicYear" value="2023" required>
+                <label for="year2023">2023</label><br>
+                <input type="radio" id="year2024" name="academicYear" value="2024">
+                <label for="year2024">2024</label><br><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Child Information</legend>
+                <label for="childName">Child's Full Name:</label>
+                <input type="text" id="childName" name="childName" required><br><br>
+
+                <p>Gender:</p>
+                <input type="radio" id="genderMale" name="gender" value="Male" required>
+                <label for="genderMale">Male</label><br>
+                <input type="radio" id="genderFemale" name="gender" value="Female">
+                <label for="genderFemale">Female</label><br><br>
+
+                <label for="ageOrDob">Age or Date of Birth:</label>
+                <input type="text" id="ageOrDob" name="ageOrDob" required><br><br>
+
+                <p>Out of School Status:</p>
+                <input type="radio" id="statusYes" name="outOfSchoolStatus" value="Yes" required>
+                <label for="statusYes">Yes</label><br>
+                <input type="radio" id="statusNo" name="outOfSchoolStatus" value="No">
+                <label for="statusNo">No</label><br><br>
+            </fieldset>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <h2>Bulk Upload Excel Data</h2>
+        <input type="file" id="fileInput" accept=".xlsx, .xls"><br><br>
+        <button id="uploadButton">Upload</button>
+
+        <h2>Summary of Results</h2>
+        <table id="dataTable" border="1">
+            <thead>
+                <tr>
+                    <th>Child's Full Name</th>
+                    <th>Gender</th>
+                    <th>Age or Date of Birth</th>
+                    <th>Out of School Status</th>
+                    <th>Date of Assessment</th>
+                    <th>Name of Enumerator</th>
+                    <th>Enumerator Phone Number</th>
+                    <th>Village</th>
+                    <th>Academic Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data rows will be appended here -->
+            </tbody>
+        </table>
+
+        <button id="export-button">Export Data</button>
+        <button id="signOutButton">Sign Out</button>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/localbase@latest/dist/localbase.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
